@@ -33,6 +33,34 @@
         <div class="q-mt-xl">
             <q-card>
                 <q-card-section>
+                    <div class="text-h6">Calcule o valor da sua Festa</div>
+                </q-card-section>
+
+                <q-card-section>
+                    <q-form ref="form" @submit.prevent="calcularPreco" class="column q-gutter-md">
+                        <g-input
+                            v-model="precos.dias"
+                            label="Informe a quantidade de dias"
+                        />
+                        <q-select
+                            v-model="precos.eventos"
+                            :options="tipoEventos"
+                            label="Selecione o tipo do evento"
+                            outlined
+                            map-options
+                        />
+                    </q-form>
+                </q-card-section>
+                
+                <q-card bordered>
+                    <div class="text-h6 text-center">Valor total</div>
+                </q-card>
+            </q-card>
+        </div>
+
+        <div class="q-mt-xl">
+            <q-card>
+                <q-card-section>
                     <div class="text-h6">Informações de Contato</div>
                 </q-card-section>
 
@@ -61,20 +89,20 @@
                 <q-card-section>
                     <q-form @submit.prevent="enviarMensagem" ref="form" class="column q-gutter-md">
                         <g-input
-                            v-model="dados.nome"
+                            v-model="orcamento.nome"
                             label="Informe seu nome"
                         />
                         <g-input
-                            v-model="dados.whatsApp"
+                            v-model="orcamento.whatsApp"
                             label="Informe seu WhatsApp"
                         />
                         <g-date
-                            v-model="dados.dataEvento"
+                            v-model="orcamento.dataEvento"
                             outlined
                             label="Informe a data do evento"
                         />
                         <q-input
-                            v-model="dados.descricao"
+                            v-model="orcamento.descricao"
                             outlined
                             label="Descreva mais sobre o evento"
                             type="textarea"
@@ -95,12 +123,34 @@
 import {ref} from "vue";
 import Espacos from "src/components/global/Espacos.vue";
 
-const dados = ref({
+const orcamento = ref({
     nome: "", 
     whatsApp: "",
     dataEvento: "",
     descricao: ""
-})
+});
+
+const precos = ref({
+    dias: "",
+    servicos: [],
+    eventos: [],
+    total: 0
+});
+
+const tipoEventos = ref([
+    {label: "Aniversário", value: "aniversario"},
+    {label: "Casamento", value: "casamento", price: 200},
+    {label: "Formatura", value: "formatura", price: 150},
+    {label: "Confraternização", value: "confraternizacao", price: 100},
+]);
+
+const servicoExtras = ref([
+    {label: "Karaokê", value: "karaoke", price: 150},
+    {label: "DJ Profissional", value: "dj", price: 300},
+    {label: "Decoração Básica", value: "decoracao", price: 200},
+    {label: "Buffet por pessoa", value: "buffet", price: 25},
+])
+
 const slide = ref(0);
 const autoplay = ref(true);
 const slides = ref([
@@ -140,7 +190,11 @@ const contato = ref([
 ]);
 
 const enviarMensagem = () => {
-    console.log("Mensagem enviada:", dados);
+    console.log("Mensagem enviada:", orcamento);
+}
+
+const calcularPreco = () => {
+    console.log("Mensagem enviada:", precos);
 }
 
 defineExpose({
