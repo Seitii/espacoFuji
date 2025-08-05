@@ -1,6 +1,6 @@
-# fuji-imports (fuji-imports)
+# espaco-fuji (espaco-fuji)
 
-fuji-imports
+espaco-fuji
 
 ## Install the dependencies
 ```bash
