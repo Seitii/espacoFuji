@@ -1,8 +1,8 @@
 {
-  "name": "fuji-imports",
+  "name": "espaco-fuji",
   "version": "0.0.1",
-  "description": "fuji-imports",
-  "productName": "fuji-imports",
+  "description": "espaco-fuji",
+  "productName": "espaco-fuji",
   "author": "Seitii <hugoseite@icloud.com>",
   "type": "module",
   "private": true,

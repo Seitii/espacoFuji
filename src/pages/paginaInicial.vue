@@ -1,78 +1,61 @@
 <template>
     <div class="q-pa-md">
-        <q-form ref="form" @submit.prevent="create">
-            <div>
-                Filtros
+        <q-carousel
+            animated
+            v-model="slide"
+            navigation
+            infinite
+            :autoplay="autoplay"
+            arrows
+            transition-prev="slide-right"
+            transition-next="slide-left"
+            @mouseenter="autoplay = false"
+            @mouseleave="autoplay = true"
+        >
+            <q-carousel-slide
+                v-for="(item, index) in slides"
+                :key="index"
+                :name="index"
+                :img-src="item.img"
+            >
+                <div class="text-h6">{{ item.title }}</div>
+                <div class="text-subtitle2">{{ item.caption }}</div>
+            </q-carousel-slide>
+        </q-carousel>
+        <div>
+            <div class="text-center q-mb-xl">
+                <h2 class="text-h4">Nosso Espaço</h2>
             </div>
-            <div class="row q-gutter-md">
-                <q-checkbox  
-                    true-value="S"
-                    false-value="N"
-                    v-model="somenteEndereco"
-                    label="Filtar por endereço"
-                />
-                <q-input
-                    v-model="filtros.telefone"
-                    dense
-                    label="Telefone"
-                    outlined
-                />
-                <q-input
-                    v-model="filtros.nome"
-                    dense
-                    label="Nome"
-                    outlined
-                />
-                <q-input
-                    v-if="somenteEndereco == 'S'"
-                    v-model="filtros.endereco"
-                    dense
-                    label="Endereço"
-                    outlined    
-                />
-                <g-button
-                    @click="vendaSemBalcao"
-                    icon="people"
-                    label="Venda de Balcão sem cliente"
-                />
-            </div>
-            <q-separator/>
-            <ListaClientes v-if="somenteEndereco == 'S'" class="q-mt-sm"/>
-            <ListaVendas v-if="somenteEndereco == 'N'" class="q-mt-sm"/>
-        </q-form>
+            <Espacos/>
+        </div>
     </div>
 </template>
 
-<script setup lang="ts">
-import {FiltrosClientes} from "../components/cliente";
-import ListaClientes from "../components/ListaClientes.vue";
-import ListaVendas from "../components/ListaVendas.vue";
+<script setup>
 import {ref} from "vue";
-const somenteEndereco = ref("N");
+import Espacos from "src/components/global/Espacos.vue";
 
-const filtros = ref<FiltrosClientes>({
-  nome: "",
-  telefone: "",
-  periodo: "",
-  dataInicial: "",
-  dataFinal: "",
-  cidade: "",
-  bairro: "",
-  saldo: "",
-  endereco: ""
-});
-
-
-const create = () => {
-    console.log("Criar cliente com filtros:", filtros.value);
-}
-
-const vendaSemBalcao = () => {
-    console.log('Venda de balcão sem cliente');
-}
+const slide = ref(0);
+const autoplay = ref(true);
+const slides = ref([
+    {
+        img: 'https://cdn.quasar.dev/img/mountains.jpg',
+        title: 'Montanhas',
+        caption: 'Uma bela vista das montanhas.'
+    },
+    {
+        img: 'https://cdn.quasar.dev/img/forest.jpg',
+        title: 'Floresta',
+        caption: 'A tranquilidade da floresta.'
+    },
+    {
+        img: 'https://cdn.quasar.dev/img/sunrise.jpg',
+        title: 'Nascer do Sol',
+        caption: 'O nascer do sol é sempre inspirador.'
+    }
+]);
 
 defineExpose({
-    ListaClientes,
-    ListaVendas
-});
+    Espacos
+})
 </script>

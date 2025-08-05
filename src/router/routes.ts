@@ -8,25 +8,8 @@ const routes: RouteRecordRaw[] = [
       { 
         path: '/', component: () => import('pages/paginaInicial.vue')
       },
-      // {
-      //   path: '/clientes',
-      //   children: [{path: "", component: () => import("pages/.vue")}]
-      // },
-      // {
-      //   path: "/cardapio",
-      //   children: [{path: "", component: () => import("pages/.vue")}]
-      // },
     ],
   },
-  // {
-  //   path: "/realizarPedido/:clienteId",
-  //   name: "realizarPedido",
-  //   component: () => import("pages/RealizarPedido.vue")
-  // },
-  // {
-  //   path: '/:catchAll(.*)*',
-  //   component: () => import('pages/ErrorNotFound.vue'),
-  // },
 ];
 
 export default routes;
