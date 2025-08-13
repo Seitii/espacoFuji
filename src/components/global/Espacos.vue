@@ -22,7 +22,6 @@
       control-color="amber"
       transition-prev="slide-right"
       transition-next="slide-left"
-      padding
       arrows
       height="auto"
     >
@@ -31,7 +30,7 @@
         :key="gIndex"
         :name="gIndex"
       >
-        <div class="row q-col-gutter-lg q-mb-xl">
+        <div class="row q-col-gutter-lg">
           <div
             v-for="(foto, fIndex) in grupo.fotos"
             :key="fIndex"

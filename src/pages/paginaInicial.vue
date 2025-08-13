@@ -24,13 +24,13 @@
         </q-carousel>
 
         <div>
-            <div class="text-center q-mb-xl">
+            <div class="text-center">
                 <h2 class="text-h4">Nosso Espaço</h2>
             </div>
             <Espacos/>
         </div>
 
-        <div class="q-mt-xl">
+        <div class="q-mt-md">
             <q-card>
                 <q-card-section>
                     <div class="text-h6">Calcule o valor da sua Festa</div>

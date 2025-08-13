@@ -2,7 +2,10 @@
   <q-layout>
     <q-header :class="{ 'bg-dark text-white': $q.dark.isActive, 'bg-white text-black': !$q.dark.isActive }" elevated>
       <q-toolbar>
-        <q-toolbar-title>🎉 Espaço Fuji</q-toolbar-title>
+        <q-toolbar-title class="row">
+          <img src="/icons/favicon-32x32.png" style="margin-right:8px" />
+          Espaço Fuji
+        </q-toolbar-title>
         <div class="q-gutter-sm">
           <!-- <g-button label="Inicio" to="/"/>
           <g-button label="Galeria" to="/galeria/"/>
@@ -25,7 +28,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
 
@@ -36,6 +39,10 @@ const toggleTheme = () => {
   $q.dark.toggle();
   // $q.localStorage.set("dark", $q.dark.isActive);
 }
+
+onMounted(() => {
+  $q.dark.set(true)
+});
 
 function goTo(url) {
   router.push(url)
