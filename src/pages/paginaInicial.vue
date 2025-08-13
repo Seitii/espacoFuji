@@ -217,19 +217,19 @@ const slide = ref(0);
 const autoplay = ref(true);
 const slides = ref([
     {
-        img: 'https://cdn.quasar.dev/img/mountains.jpg',
-        title: 'Montanhas',
-        caption: 'Uma bela vista das montanhas.'
+        img: 'src/assets/cozinha/cozinha1.jpg',
+        title: 'Cozinha',
+        caption: 'Um espaço para preparar refeições.'
     },
     {
-        img: 'https://cdn.quasar.dev/img/forest.jpg',
-        title: 'Floresta',
-        caption: 'A tranquilidade da floresta.'
+        img: 'src/assets/salao/salao1.jpg',
+        title: 'Salão Principal',
+        caption: 'Um espaço amplo e elegante para eventos.'
     },
     {
-        img: 'https://cdn.quasar.dev/img/sunrise.jpg',
-        title: 'Nascer do Sol',
-        caption: 'O nascer do sol é sempre inspirador.'
+        img: 'src/assets/salao/salao4.jpg',
+        title: 'Salão Principal',
+        caption: 'Um espaço amplo e elegante para eventos.'
     }
 ]);
 
@@ -242,7 +242,7 @@ const contato = ref([
     {
         icon: "email",
         title: "Email",
-        description: "hugoseite@icloud.com",
+        description: "hugoseitiodajima@gmail.com",
     },
     {
         icon: "location_on",

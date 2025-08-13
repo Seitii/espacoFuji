@@ -4,10 +4,10 @@
       <q-toolbar>
         <q-toolbar-title>🎉 Espaço Fuji</q-toolbar-title>
         <div class="q-gutter-sm">
-          <g-button label="Inicio" to="/"/>
+          <!-- <g-button label="Inicio" to="/"/>
           <g-button label="Galeria" to="/galeria/"/>
           <g-button label="Preços" to="/precos/"/>
-          <g-button label="Contato" to="/contato/"/>
+          <g-button label="Contato" to="/contato/"/> -->
           <q-btn 
             flat round :text-color="!$q.dark.isActive ? 'black' : 'white'"
             :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
