@@ -34,7 +34,7 @@ const $q = useQuasar()
 
 const toggleTheme = () => {
   $q.dark.toggle();
-  $q.localStorage.set("dark", $q.dark.isActive);
+  // $q.localStorage.set("dark", $q.dark.isActive);
 }
 
 function goTo(url) {

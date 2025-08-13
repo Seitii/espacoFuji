@@ -184,9 +184,6 @@
 <script setup>
 import {ref} from "vue";
 import Espacos from "src/components/global/Espacos.vue";
-import cozinha1 from 'assets/cozinha/cozinha1.jpg'
-import salao1   from 'assets/salao/salao1.jpg'
-import salao4   from 'assets/salao/salao4.jpg'
 
 const orcamento = ref({
     nome: "", 
@@ -220,17 +217,17 @@ const slide = ref(0);
 const autoplay = ref(true);
 const slides = ref([
     {
-        img: cozinha1,
+        img: '/images/cozinha/cozinha1.jpg',
         title: 'Cozinha',
         caption: 'Um espaço para preparar refeições.'
     },
     {
-        img: salao1,
+        img: '/images/salao/salao1.jpg',
         title: 'Salão Principal',
         caption: 'Um espaço amplo e elegante para eventos.'
     },
     {
-        img: salao4,
+        img: '/images/salao/salao4.jpg',
         title: 'Salão Principal',
         caption: 'Um espaço amplo e elegante para eventos.'
     }

@@ -57,35 +57,35 @@ const galerias = ref([
   {
     titulo: "Banheiros",
     fotos: [
-      new URL('assets/banheiros/banheiro1.jpg', import.meta.url).href,
-      new URL('assets/banheiros/banheiro2.jpg', import.meta.url).href,
-      new URL('assets/banheiros/banheiro3.jpg', import.meta.url).href
+      '/images/banheiros/banheiro1.jpg',
+      '/images/banheiros/banheiro2.jpg',
+      '/images/banheiros/banheiro3.jpg'
     ]
   },
   {
     titulo: "Cozinha",
     fotos: [
-      new URL('assets/cozinha/cozinha1.jpg', import.meta.url).href,
-      new URL('assets/cozinha/cozinha2.jpg', import.meta.url).href,
-      new URL('assets/cozinha/cozinha3.jpg', import.meta.url).href,
-      new URL('assets/cozinha/cozinha4.jpg', import.meta.url).href
+      '/images/cozinha/cozinha1.jpg',
+      '/images/cozinha/cozinha2.jpg',
+      '/images/cozinha/cozinha3.jpg',
+      '/images/cozinha/cozinha4.jpg',
     ]
   },
   {
     titulo: "Salão",
     fotos: [
-      new URL('assets/salao/salao1.jpg', import.meta.url).href,
-      new URL('assets/salao/salao2.jpg', import.meta.url).href,
-      new URL('assets/salao/salao3.jpg', import.meta.url).href,
-      new URL('assets/salao/salao4.jpg', import.meta.url).href,
-      new URL('assets/salao/salao5.jpg', import.meta.url).href
+      '/images/salao/salao1.jpg',
+      '/images/salao/salao2.jpg',
+      '/images/salao/salao3.jpg',
+      '/images/salao/salao4.jpg',
+      '/images/salao/salao5.jpg',
     ]
   },
   {
     titulo: "Sala Privada",
     fotos: [
-      new URL('assets/salaPrivada/salaPrivada1.jpg', import.meta.url).href,
-      new URL('assets/salaPrivada/salaPrivada2.jpg', import.meta.url).href
+      '/images/salaPrivada/salaPrivada1.jpg',
+      '/images/salaPrivada/salaPrivada2.jpg',
     ]
   }
 ]);
