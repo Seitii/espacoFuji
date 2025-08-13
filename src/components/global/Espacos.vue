@@ -57,35 +57,35 @@ const galerias = ref([
   {
     titulo: "Banheiros",
     fotos: [
-      new URL('src/assets/banheiros/banheiro1.jpg', import.meta.url),
-      new URL('src/assets/banheiros/banheiro2.jpg', import.meta.url),
-      new URL('src/assets/banheiros/banheiro3.jpg', import.meta.url)
+      new URL('assets/banheiros/banheiro1.jpg', import.meta.url).href,
+      new URL('assets/banheiros/banheiro2.jpg', import.meta.url).href,
+      new URL('assets/banheiros/banheiro3.jpg', import.meta.url).href
     ]
   },
   {
     titulo: "Cozinha",
     fotos: [
-      new URL('src/assets/cozinha/cozinha1.jpg', import.meta.url),
-      new URL('src/assets/cozinha/cozinha2.jpg', import.meta.url),
-      new URL('src/assets/cozinha/cozinha3.jpg', import.meta.url),
-      new URL('src/assets/cozinha/cozinha4.jpg', import.meta.url)
+      new URL('assets/cozinha/cozinha1.jpg', import.meta.url).href,
+      new URL('assets/cozinha/cozinha2.jpg', import.meta.url).href,
+      new URL('assets/cozinha/cozinha3.jpg', import.meta.url).href,
+      new URL('assets/cozinha/cozinha4.jpg', import.meta.url).href
     ]
   },
   {
     titulo: "Salão",
     fotos: [
-      new URL('src/assets/salao/salao1.jpg', import.meta.url),
-      new URL('src/assets/salao/salao2.jpg', import.meta.url),
-      new URL('src/assets/salao/salao3.jpg', import.meta.url),
-      new URL('src/assets/salao/salao4.jpg', import.meta.url),
-      new URL('src/assets/salao/salao5.jpg', import.meta.url)
+      new URL('assets/salao/salao1.jpg', import.meta.url).href,
+      new URL('assets/salao/salao2.jpg', import.meta.url).href,
+      new URL('assets/salao/salao3.jpg', import.meta.url).href,
+      new URL('assets/salao/salao4.jpg', import.meta.url).href,
+      new URL('assets/salao/salao5.jpg', import.meta.url).href
     ]
   },
   {
     titulo: "Sala Privada",
     fotos: [
-      new URL('src/assets/salaPrivada/salaPrivada1.jpg', import.meta.url),
-      new URL('src/assets/salaPrivada/salaPrivada2.jpg', import.meta.url)
+      new URL('assets/salaPrivada/salaPrivada1.jpg', import.meta.url).href,
+      new URL('assets/salaPrivada/salaPrivada2.jpg', import.meta.url).href
     ]
   }
 ]);
