@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed, onMounted, ref} from "vue";
+import {computed, onMounted, ref, defineProps} from "vue";
 
 const inputValue = ref<string | null>(null);
 

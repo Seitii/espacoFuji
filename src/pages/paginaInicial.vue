@@ -40,6 +40,7 @@
                     <q-form ref="form" @submit.prevent="calcularPreco" class="column q-gutter-md">
                         <g-input
                             v-model="precos.dias"
+                            mask="##"
                             label="Informe a quantidade de dias"
                         />
                         <q-select
@@ -48,12 +49,73 @@
                             label="Selecione o tipo do evento"
                             outlined
                             map-options
+                            multiple
+                            clearable
+                        >
+                            <template v-slot:option="scope">
+                                <q-item
+                                    v-bind="scope.itemProps"
+                                    v-on="scope.itemEvents"
+                                >
+                                    <q-item-section class="q-mr-sm">
+                                        <q-item-label>
+                                            {{ scope.opt.label }} - Preço R$: {{ scope.opt.price }}
+                                        </q-item-label>
+                                    </q-item-section>
+                                </q-item>
+                            </template>
+
+                            <template v-slot:selected-item="scope">
+                                <q-chip
+                                    removable
+                                    @remove="scope.removeAtIndex(scope.index)"
+                                >
+                                    {{ scope.opt.label }} R${{ scope.opt.price }}
+                                </q-chip>
+                            </template>
+                        </q-select>
+
+                        <q-select
+                            v-model="precos.servicos"
+                            :options="tipoServicos"
+                            label="Selecione os serviços"
+                            outlined
+                            multiple
+                            clearable
+                            map-options
+                        >
+                            <template v-slot:option="scope">
+                                <q-item
+                                    v-bind="scope.itemProps"
+                                    v-on="scope.itemEvents"
+                                >
+                                    <q-item-section class="q-mr-sm">
+                                        <q-item-label>
+                                            {{ scope.opt.label }} - Preço R$: {{ scope.opt.price }}
+                                        </q-item-label>
+                                    </q-item-section>
+                                </q-item>
+                            </template>
+
+                            <template v-slot:selected-item="scope">
+                                <q-chip
+                                    removable
+                                    @remove="scope.removeAtIndex(scope.index)"
+                                >
+                                    {{ scope.opt.label }} R${{ scope.opt.price }}
+                                </q-chip>
+                            </template>
+                        </q-select>
+
+                        <g-button
+                            label="Adicionar"
+                            @click="calcularPreco"
                         />
                     </q-form>
                 </q-card-section>
                 
                 <q-card bordered>
-                    <div class="text-h6 text-center">Valor total</div>
+                    <div class="text-h6 text-center">Valor total R$:{{ precos.total }}</div>
                 </q-card>
             </q-card>
         </div>
@@ -93,6 +155,7 @@
                             label="Informe seu nome"
                         />
                         <g-input
+                            mask="###########"
                             v-model="orcamento.whatsApp"
                             label="Informe seu WhatsApp"
                         />
@@ -109,7 +172,6 @@
                         />
                         <g-button
                             label="Enviar Mensagem"
-                            color="primary"
                             type="submit"
                         />
                     </q-form>
@@ -134,21 +196,21 @@ const precos = ref({
     dias: "",
     servicos: [],
     eventos: [],
-    total: 0
+    total: ""
 });
 
 const tipoEventos = ref([
-    {label: "Aniversário", value: "aniversario"},
-    {label: "Casamento", value: "casamento", price: 200},
-    {label: "Formatura", value: "formatura", price: 150},
-    {label: "Confraternização", value: "confraternizacao", price: 100},
+    {label: "Aniversário", value: "1", price: 50},
+    {label: "Casamento", value: "2", price: 200},
+    {label: "Formatura", value: "3", price: 150},
+    {label: "Confraternização", value: "4", price: 100},
 ]);
 
-const servicoExtras = ref([
-    {label: "Karaokê", value: "karaoke", price: 150},
-    {label: "DJ Profissional", value: "dj", price: 300},
-    {label: "Decoração Básica", value: "decoracao", price: 200},
-    {label: "Buffet por pessoa", value: "buffet", price: 25},
+const tipoServicos = ref([
+    {label: "Karaokê", value: "1", price: 150},
+    {label: "DJ Profissional", value: "2", price: 300},
+    {label: "Decoração Básica", value: "3", price: 200},
+    {label: "Buffet por pessoa", value: "4", price: 25},
 ])
 
 const slide = ref(0);
@@ -190,11 +252,34 @@ const contato = ref([
 ]);
 
 const enviarMensagem = () => {
-    console.log("Mensagem enviada:", orcamento);
+    const numeroDestino = "5561986389157";
+    const mensagem = `
+        Olá, meu nome é ${orcamento.value.nome} e gostaria de solicitar um orçamento.
+        Meu WhatsApp é ${orcamento.value.whatsApp} e a data do evento é ${orcamento.value.dataEvento}.
+        Valor total: R$ ${precos.value.total}
+        Mais detalhes sobre o evento: ${orcamento.value.descricao}
+    `;
+
+    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
 }
 
 const calcularPreco = () => {
-    console.log("Mensagem enviada:", precos);
+    let total = 0;
+
+    const dias = parseInt(precos.value.dias) || 0;
+
+    total += dias * 500;
+
+    precos.value.servicos.forEach(servico => {
+        total += servico.price;
+    });
+
+    precos.value.eventos.forEach(evento => {
+        total += evento.price;
+    });
+
+    precos.value.total = total;
 }
 
 defineExpose({

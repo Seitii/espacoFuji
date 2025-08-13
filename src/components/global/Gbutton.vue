@@ -1,6 +1,6 @@
 <template>
     <q-btn
-        :color="$q.dark.isActive ? 'white' : 'black'"
+        :color="$q.dark.isActive ? 'white' : 'primary'"
         :text-color="$q.dark.isActive ? 'black' : 'white'"
         dense
     >
